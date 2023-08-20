@@ -1,0 +1,10 @@
+version: '0.1'
+services:
+  # Container name 
+  Qbcore-nexnic: 
+  build: .
+
+  volumes:
+    -../srv:home/srv
+  # Entrypoint 
+  command: [/bin/bash]

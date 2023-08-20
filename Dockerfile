@@ -33,6 +33,6 @@ ENV Port $DEFAULT_PORT
 
 
 EXPOSE ${DEFAULT_PORT}
-
+ENTRYPOINT [  ] 
 #Default to an empty CMD, so We can use it to add seperate args to the binary
-CMD ["bash"]
+CMD [""]
