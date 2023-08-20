@@ -1,7 +1,7 @@
 version: '0.1'
 services:
   # Container name 
-  Qbcore-nexnic: 
+  qbcore-nexnic: 
   build: .
 
   volumes:
