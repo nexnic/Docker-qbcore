@@ -13,9 +13,9 @@ RUN \
     apt-get install -y byobu curl git htop man unzip vim wget && \
     rm -rf /var/lib/apt/lists/*
     
-ENV HOME /root
 
-WORKDIR /root
+
+WORKDIR /srv/
 ##apt-get update && apt-get install -y \
 ##git \
 ##wget
@@ -27,8 +27,12 @@ WORKDIR /root
 ##ARG FIVEM_VER=5848-4f71128ee48b07026d6d7229a60ebc5f40f2b9db
 ##RUN wget https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/${FIVEM_VER}/fx.tar.xz
 
-## Open Port 
-EXPOSE 30120 
+## Default Port
+ARG DEFAULT_PORT=30120
+ENV Port $DEFAULT_PORT
+
+
+EXPOSE ${DEFAULT_PORT}
 
 #Default to an empty CMD, so We can use it to add seperate args to the binary
 CMD ["bash"]
