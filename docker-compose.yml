@@ -3,8 +3,9 @@ services:
   # Container name 
   qbcore-nexnic: 
   build: .
+  # Attach local files to docker container 
 
   volumes:
-    -../srv:home/srv
+    - ../app:home/app
   # Entrypoint 
   command: [/bin/bash]
