@@ -11,10 +11,11 @@ RUN \
     apt-get install -y build-essential && \
     apt-get install -y software-properties-common && \
     apt-get install -y byobu curl git htop man unzip vim wget && \
+    rm -rf /var/lib/apt/lists/*
+    
+ENV HOME /root
 
-    ENV HOME /root
-
-    WORKDIR /root
+WORKDIR /root
 ##apt-get update && apt-get install -y \
 ##git \
 ##wget
@@ -30,4 +31,4 @@ RUN \
 EXPOSE 30120 
 
 #Default to an empty CMD, so We can use it to add seperate args to the binary
-CMD [""]
+CMD ["bash"]
