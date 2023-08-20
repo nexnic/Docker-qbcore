@@ -2,7 +2,7 @@
 ## ubuntu Server
 FROM ubuntu:22.04
 ## Work Dir 
-WORKDIR /srv/app
+#WORKDIR /srv/app
 ## Installing 
 RUN apt-get update && apt-get install -y \
     git \
