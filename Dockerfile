@@ -15,7 +15,7 @@ RUN \
     
 
 
-WORKDIR /srv/
+#WORKDIR /srv/
 ##apt-get update && apt-get install -y \
 ##git \
 ##wget
