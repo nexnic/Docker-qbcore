@@ -4,9 +4,9 @@ FROM ubuntu:20.04
 ## Work Dir 
 #WORKDIR /srv/app
 ## Installing 
-RUN \
-    sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
-    apt-get update && 
+##RUN \
+##    sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
+##    apt-get update && \
 ##    apt-get -y upgrade && \
 ##    apt-get install -y build-essential && \
 ##    apt-get install -y software-properties-common && \
