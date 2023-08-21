@@ -1,11 +1,13 @@
-version: '3.9'
+version: "3.9"
 services:
-  # Container name 
-  qbcore-nexnic: 
-  build: .
-  # Attach local files to docker container 
-
-  volumes:
-    - ../app:home/app
-  # Entrypoint 
-  command: [/bin/bash]
+  # Container name
+  my-container:
+    # Build the Dockerfile we added before
+    build: .
+    # Attach local files to docker container 
+    # - Your computer will have a app folder 
+    #   and in the container the files will appear in /home/app 
+    volumes:
+      - ../app:/home/app
+    # Entrypoint when we "ssh" to container
+    command: [/bin/bash]
