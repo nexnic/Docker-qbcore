@@ -1,6 +1,6 @@
 # syntax=docker/dockerfile:1
 ## ubuntu Server
-FROM ubuntu:latest
+FROM ubuntu:20.04
 ## Work Dir 
 #WORKDIR /srv/app
 ## Installing 
