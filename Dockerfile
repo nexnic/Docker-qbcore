@@ -1,6 +1,7 @@
 # syntax=docker/dockerfile:1
 ## ubuntu Server
 FROM ubuntu:20.04
+ARG DEBIAN_FRONTEND=noninteractive
 ## Work Dir 
 #WORKDIR /srv/app
 ## Installing 
