@@ -38,8 +38,15 @@ RUN \
 RUN \
     apt-get install -y git && \
     git config --global user.name $GIT_USERNAME && \
-    git config --global user.email $GIT_EMAIL && \
-    mkdir /$SSHKEYFOLDER
+    git config --global user.email $GIT_EMAIL
+
+## SSH Install 
+RUN \
+    apt-get install -y && \
+        openssh-server \
+        libmysqlclient-dev
+
+
     
 
 ## Fivem Install 
