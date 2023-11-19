@@ -1,18 +1,16 @@
 # syntax=docker/dockerfile:1
 # Ubuntu Server
+# https://hub.docker.com/_/ubuntu
 FROM ubuntu:latest
+# Removing Desktop Kernal
 ARG DEBIAN_FRONTEND=noninteractive
 
+# Variable
+## FIVEM VERSION NUMBER 
+## https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/ 
+ARG FIVEM_VER='6683-9729577be50de537692c3a19e86365a5e0f99a54'
 
-
-## Work Dir 
-## WORKDIR /srv/app
-
-##WORKDIR /app
-
-
-
-## Installing 
+## Updating Ubuntu 
 RUN \
     sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
     apt-get update && \
@@ -22,17 +20,15 @@ RUN \
     apt-get install -y byobu curl git htop man unzip vim wget && \
     rm -rf /var/lib/apt/lists/*
 
-
+## Fivem Install 
 RUN mkdir /fivem && \
     useradd -d /fivem -s /bin/bash admin_keh && \
     chown -R admin_keh /fivem && \
     cd /fivem && \ 
-    wget https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/5848-4f71128ee48b07026d6d7229a60ebc5f40f2b9db/fx.tar.xz && \
+    wget https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/$FIVEM_VER/fx.tar.xz && \
     tar -xf fx.tar.xz && \ 
     rm fx.tar.xz && \
     ulimit -n 2048
-#ARG FIVEM_VER=
-#RUN wget https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/5848-4f71128ee48b07026d6d7229a60ebc5f40f2b9db/fx.tar.xz
 
 EXPOSE 3000
 
