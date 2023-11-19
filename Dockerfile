@@ -19,7 +19,10 @@ ARG GIT_EMAIL='testparis@gmail.com'
 
 ## Folders
 ARG SSHKEYFOLDER='/root/.ssh'
+ARG SSHKEYPRI='/ssh/ssht'
+ARG SSHKEYPUB='/ssh/ssh.pub'
 ARG FIVEMFOLDER='/fivem'
+
 
 ## Updating Ubuntu 
 
