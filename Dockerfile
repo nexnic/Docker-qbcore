@@ -18,7 +18,7 @@ ARG GIT_USERNAME='Test Paris'
 ARG GIT_EMAIL='testparis@gmail.com'
 ## Folders
 ARG SSHKEYFOLDER='/root/.ssh'
-ARG FIVEMFOLDER='fivem'
+ARG FIVEMFOLDER='/fivem'
 
 ## Updating Ubuntu 
 
@@ -46,16 +46,16 @@ RUN \
 
 ## Authorize SSH Host
 
-##RUN mkdir $SSHKEYFOLDER && \
-##    chmod 0700 /root/.ssh
-##COPY /ssh/known_hosts > $SSHKEYFOLDER  
+RUN mkdir $SSHKEYFOLDER && \
+    chmod 0700 $SSHKEYFOLDER
+COPY /ssh/known_hosts $SSHKEYFOLDER
 
 ## Fivem Install 
 
-RUN mkdir /fivem && \
-    useradd -d /$FIVEMFOLDER -s /bin/bash $USERNAME && \
+RUN mkdir $FIVEMFOLDER && \
+    useradd -d $FIVEMFOLDER -s /bin/bash $USERNAME && \
     chown -R $USERNAME /$FIVEMFOLDER && \
-    cd /FIVEMFOLDER && \ 
+    cd $FIVEMFOLDER && \ 
     wget https://runtime.fivem.net/artifacts/fivem/build_proot_linux/master/$FIVEM_VER/fx.tar.xz && \
     tar -xf fx.tar.xz && \ 
     rm fx.tar.xz && \
