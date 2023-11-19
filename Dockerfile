@@ -17,10 +17,8 @@ ARG FIVEM_VER='6683-9729577be50de537692c3a19e86365a5e0f99a54'
 ARG GIT_USERNAME='Test Paris'
 ARG GIT_EMAIL='testparis@gmail.com'
 ## Folders
-ARG SSHKEYFOLDER='SSHKEY'
+ARG SSHKEYFOLDER='/root/.ssh'
 ARG FIVEMFOLDER='fivem'
-
-
 
 ## Updating Ubuntu 
 
@@ -46,8 +44,10 @@ RUN \
         openssh-server \
         libmysqlclient-dev
 
-
-    
+## Authorize SSH Host
+RUN mkdir $SSHKEYFOLDER && \
+    chmod 0700 /root/.ssh
+COPY /ssh/known_hosts > $SSHKEYFOLDER  
 
 ## Fivem Install 
 
