@@ -50,9 +50,10 @@ COPY /ssh/known_hosts $SSHKEYFOLDER
 
 COPY /ssh/ssht $SSHKEYFOLDER
 COPY /ssh/ssh.pub $SSHKEYFOLDER
+
 RUN \
-    chomd 600 $SSHKEYFOLDER/ssht && \
-    chomd 600 $SSHKEYFOLDER/ssh.pub
+    chmod 600 /root/.ssh/ssht && \
+    chmod 600 /root/.ssh/ssh.pub
 
 ## Fivem Install 
 
