@@ -39,15 +39,16 @@ RUN \
     git config --global user.email $GIT_EMAIL
 
 ## SSH Install 
-RUN \
-    apt-get install -y && \
-        openssh-server \
-        libmysqlclient-dev
+
+##RUN \
+    ##apt-get install -y openssh-server
+    
 
 ## Authorize SSH Host
-RUN mkdir $SSHKEYFOLDER && \
-    chmod 0700 /root/.ssh
-COPY /ssh/known_hosts > $SSHKEYFOLDER  
+
+##RUN mkdir $SSHKEYFOLDER && \
+##    chmod 0700 /root/.ssh
+##COPY /ssh/known_hosts > $SSHKEYFOLDER  
 
 ## Fivem Install 
 
