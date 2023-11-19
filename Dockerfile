@@ -16,6 +16,7 @@ ARG FIVEM_VER='6683-9729577be50de537692c3a19e86365a5e0f99a54'
 ## GIT 
 ARG GIT_USERNAME='Test Paris'
 ARG GIT_EMAIL='testparis@gmail.com'
+
 ## Folders
 ARG SSHKEYFOLDER='/root/.ssh'
 ARG FIVEMFOLDER='/fivem'
@@ -36,19 +37,19 @@ RUN \
 RUN \
     apt-get install -y git && \
     git config --global user.name $GIT_USERNAME && \
-    git config --global user.email $GIT_EMAIL
+    git config --global user.email $GIT_EMAIL 
 
-## SSH Install 
-
-##RUN \
-    ##apt-get install -y openssh-server
-    
 
 ## Authorize SSH Host
 
 RUN mkdir $SSHKEYFOLDER && \
     chmod 0700 $SSHKEYFOLDER
 COPY /ssh/known_hosts $SSHKEYFOLDER
+
+## Adding SSH KEY
+
+COPY /ssh/ssht $SSHKEYFOLDER
+COPY /ssh/ssh.pub $SSHKEYFOLDER
 
 ## Fivem Install 
 
