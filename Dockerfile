@@ -46,10 +46,13 @@ RUN mkdir $SSHKEYFOLDER && \
     chmod 0700 $SSHKEYFOLDER
 COPY /ssh/known_hosts $SSHKEYFOLDER
 
-## Adding SSH KEY
+## Add the keys and set permissions
 
 COPY /ssh/ssht $SSHKEYFOLDER
 COPY /ssh/ssh.pub $SSHKEYFOLDER
+RUN \
+    chomd 600 $SSHKEYFOLDER/ssht && \
+    chomd 600 $SSHKEYFOLDER/ssh.pub
 
 ## Fivem Install 
 
